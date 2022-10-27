@@ -9,6 +9,7 @@ public class PortalPreviewScript : MonoBehaviour
     [SerializeField] LayerMask portalMask;
     [SerializeField] float maxPortalDist = float.MaxValue;
     [SerializeField] float maxPointDist;
+    [SerializeField] float maxAngleValue;
     List<Transform> previewPoints = new List<Transform>();
 
     public bool isInvalidPosition(Camera cam)
@@ -24,13 +25,15 @@ public class PortalPreviewScript : MonoBehaviour
                     return false;
                 }
                 //if((prevPoint.position - hitInfo.collider.gameObject.transform.position).magnitude > maxPointDist)
-                /*if ((hitInfo.collider.gameObject.transform.position-point.position).magnitude > maxPointDist)
+                if ((hitInfo.collider.gameObject.transform.position-point.position).magnitude > maxPointDist)
 
                 {
                    return false;
                 }
 
-                if()*/
+                //if(hitInfo.normal - point.rotation.)
+
+                //if(angulo entre la normal del raycast y el z del point > umbral)
             }
             else {
                 return false;
