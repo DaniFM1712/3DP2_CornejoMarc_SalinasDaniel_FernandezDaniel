@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PortalScript : MonoBehaviour
 {
-    [SerializeField] PortalScript otherPortal;
-    [SerializeField] Transform virtualPortal;
+    public PortalScript otherPortal;
+    public Transform virtualPortal;
     [SerializeField] Camera cam;
     [SerializeField] Transform player;
 

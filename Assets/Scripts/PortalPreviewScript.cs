@@ -12,7 +12,7 @@ public class PortalPreviewScript : MonoBehaviour
     [SerializeField] float maxAngleValue;
     List<Transform> previewPoints = new List<Transform>();
 
-    public bool isInvalidPosition(Camera cam)
+    public bool isValidPosition(Camera cam)
     {
         Transform prevPoint = previewPointsParent.GetChild(0);
         foreach(Transform point in previewPointsParent)
@@ -24,16 +24,16 @@ public class PortalPreviewScript : MonoBehaviour
                 {
                     return false;
                 }
-                //if((prevPoint.position - hitInfo.collider.gameObject.transform.position).magnitude > maxPointDist)
                 if ((hitInfo.collider.gameObject.transform.position-point.position).magnitude > maxPointDist)
 
                 {
                    return false;
                 }
 
-                //if(hitInfo.normal - point.rotation.)
-
-                //if(angulo entre la normal del raycast y el z del point > umbral)
+                if(Vector3.Angle(hitInfo.normal, point.transform.forward)>maxAngleValue)
+                {
+                    return false;
+                }
             }
             else {
                 return false;

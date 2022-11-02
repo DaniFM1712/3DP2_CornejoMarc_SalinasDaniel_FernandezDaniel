@@ -52,9 +52,7 @@ public class FpsController : MonoBehaviour
 
     private void Awake()
     {
-        yaw = transform.rotation.eulerAngles.y;
-        pitch = transform.rotation.eulerAngles.x;
-
+        RecalculateOrientation();
         gravity = (-2 * maxHeightJump) / (jumpTime * jumpTime);
         jumpSpeed = -gravity * jumpTime;
         Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
@@ -166,6 +164,12 @@ public class FpsController : MonoBehaviour
             verticalSpeed = jumpSpeed; //hacemos que salte y cambie la verticalSpeed del personaje
 
         }
+    }
+
+    public void RecalculateOrientation()
+    {
+        yaw = transform.rotation.eulerAngles.y;
+        pitch = transform.rotation.eulerAngles.x;
     }
 
     Vector3 getForward()
