@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PortalGunScript : MonoBehaviour
 {
     [SerializeField] GameObject previewPortal;
@@ -11,6 +11,8 @@ public class PortalGunScript : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] float maxShootDistance = float.MaxValue;
     [SerializeField] LayerMask portalMask;
+    [SerializeField] UnityEvent<bool> bluePortalShot;
+    [SerializeField] UnityEvent<bool> orangePortalShot;
     bool previewActive = false;
     bool portalToActivate = false;
 
@@ -47,8 +49,10 @@ public class PortalGunScript : MonoBehaviour
                     bluePortal.SetActive(true);
                     bluePortal.transform.position = previewPortal.transform.position;
                     bluePortal.transform.rotation = previewPortal.transform.rotation;
+
                     bluePortal.transform.localScale = previewPortal.transform.localScale;
 
+                    bluePortalShot.Invoke(true);
                 }
                 else
                 {
@@ -57,6 +61,7 @@ public class PortalGunScript : MonoBehaviour
                     orangePortal.transform.rotation = previewPortal.transform.rotation;
                     orangePortal.transform.localScale = previewPortal.transform.localScale;
 
+                    orangePortalShot.Invoke(true);
                 }
 
 
