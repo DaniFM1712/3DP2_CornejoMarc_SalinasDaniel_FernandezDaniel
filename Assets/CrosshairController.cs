@@ -17,11 +17,9 @@ public class CrosshairController : MonoBehaviour
     {
         shotBluePortal = false;
         shotOrangePortal = false;
-
         ChangeCrosshair();
         
     }
-
 
     public void BluePortalActivated(bool isActive)
     {

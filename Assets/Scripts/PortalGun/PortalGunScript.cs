@@ -116,4 +116,10 @@ public class PortalGunScript : MonoBehaviour
             yAxis = 1f;
         }
     }
+
+    public void DisablePortals()
+    {
+        bluePortal.SetActive(false);
+        orangePortal.SetActive(false);
+    }
 }
