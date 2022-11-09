@@ -27,9 +27,12 @@ public class TeleportScript : MonoBehaviour
                 rb.velocity = portal.otherPortal.transform.TransformDirection(l_velocity); ;
             }
 
-            if (gameObject.layer.CompareTo("Player") != 0)
+            if (gameObject.layer != 3)
             {
-                transform.localScale = portal.transform.localScale;
+                Vector3 portalScale = portal.otherPortal.transform.localScale;
+                portalScale.y = portal.otherPortal.transform.localScale.x;
+                portalScale.z = portal.otherPortal.transform.localScale.x;
+                gameObject.transform.localScale = portalScale;
             }
         }       
     }
