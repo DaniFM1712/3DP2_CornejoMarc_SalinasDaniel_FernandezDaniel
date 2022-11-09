@@ -32,7 +32,7 @@ public class PortalGunScript : MonoBehaviour
         {
             portalToActivate = true;
             previewActive = MovePreview();
-            scalePortal();
+            //scalePortal();
 
         }
         else if (Input.GetMouseButton(1))
@@ -50,7 +50,7 @@ public class PortalGunScript : MonoBehaviour
                     bluePortal.transform.position = previewPortal.transform.position;
                     bluePortal.transform.rotation = previewPortal.transform.rotation;
 
-                    bluePortal.transform.localScale = previewPortal.transform.localScale;
+                    //bluePortal.transform.localScale = previewPortal.transform.localScale;
 
                     bluePortalShot.Invoke(true);
                 }
@@ -59,7 +59,7 @@ public class PortalGunScript : MonoBehaviour
                     orangePortal.SetActive(true);
                     orangePortal.transform.position = previewPortal.transform.position;
                     orangePortal.transform.rotation = previewPortal.transform.rotation;
-                    orangePortal.transform.localScale = previewPortal.transform.localScale;
+                    //orangePortal.transform.localScale = previewPortal.transform.localScale;
 
                     orangePortalShot.Invoke(true);
                 }

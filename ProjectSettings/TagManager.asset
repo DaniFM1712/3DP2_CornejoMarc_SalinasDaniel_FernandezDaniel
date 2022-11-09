@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PortalEnabled
+  - Cube
+  - Turret
   layers:
   - Default
   - TransparentFX

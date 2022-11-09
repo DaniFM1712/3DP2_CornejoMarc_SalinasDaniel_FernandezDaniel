@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LaserScript : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
@@ -12,6 +12,12 @@ public class LaserScript : MonoBehaviour
     public void activate(bool enable)
     {
         isEnabled = enable;
+    }
+
+    public void PermanentDisable()
+    {
+        Debug.Log("PERMA DEATH");
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -30,6 +36,15 @@ public class LaserScript : MonoBehaviour
             if(hitInfo.collider.gameObject.TryGetComponent(out LaserButtonScript laserButton))
             {
                 laserButton.Pressed();
+            }
+            else if(hitInfo.collider.gameObject.CompareTag("Player"))
+            {
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+            }
+            else if (hitInfo.collider.gameObject.CompareTag("Turret"))
+            {
+                Destroy(hitInfo.collider.gameObject);
             }
             else if (hitInfo.collider.gameObject.TryGetComponent(out ReflectionScript reflection))
             {

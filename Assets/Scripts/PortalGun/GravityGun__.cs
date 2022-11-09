@@ -21,7 +21,6 @@ public class GravityGun__ : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(2))
         {
-            Debug.Log("GravityShoot");
             takenObject = gravityShoot();
             if(takenObject != null)
             {
