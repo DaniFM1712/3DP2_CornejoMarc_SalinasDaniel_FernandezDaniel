@@ -9,6 +9,7 @@ public class ReflectionScript : MonoBehaviour
 
     public void ActivateReflection(bool active)
     {
+        Debug.Log("PORTAL LASER");
         wasActivated = true;
         
     }

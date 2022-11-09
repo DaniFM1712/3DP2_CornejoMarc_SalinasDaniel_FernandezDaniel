@@ -26,6 +26,7 @@ public class LaserScript : MonoBehaviour
         if (Physics.Raycast(r, out RaycastHit hitInfo, maxRayDist, layerMask))
         {
             lineRenderer.SetPosition(1 ,new Vector3(0f, 0f, hitInfo.distance));
+            Debug.Log("HIT: " + hitInfo.collider.gameObject.name);
             if(hitInfo.collider.gameObject.TryGetComponent(out LaserButtonScript laserButton))
             {
                 laserButton.Pressed();
