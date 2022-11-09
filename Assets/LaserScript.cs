@@ -7,7 +7,7 @@ public class LaserScript : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] LayerMask layerMask;
     [SerializeField] float maxRayDist = float.MaxValue;
-    bool isEnabled = true;
+    bool isEnabled = false;
 
     public void activate(bool enable)
     {
@@ -28,7 +28,11 @@ public class LaserScript : MonoBehaviour
             lineRenderer.SetPosition(1 ,new Vector3(0f, 0f, hitInfo.distance));
             if(hitInfo.collider.gameObject.TryGetComponent(out LaserButtonScript laserButton))
             {
-                Debug.Log("LASER BUTTON");
+                laserButton.Pressed();
+            }
+            else if (hitInfo.collider.gameObject.TryGetComponent(out ReflectionScript reflection))
+            {
+                reflection.ActivateReflection(true);
             }
         }
         else
