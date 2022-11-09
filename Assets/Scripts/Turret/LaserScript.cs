@@ -39,8 +39,7 @@ public class LaserScript : MonoBehaviour
             }
             else if(hitInfo.collider.gameObject.CompareTag("Player"))
             {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
+                SceneManager.LoadScene(1);
             }
             else if (hitInfo.collider.gameObject.CompareTag("Turret"))
             {
