@@ -14,12 +14,24 @@ public class PortalGunScript : MonoBehaviour
     bool previewActive = false;
     bool portalToActivate = false;
 
+    Vector2 mousescroll;
+    float xAxis;
+    float yAxis;
+    float zAxis;
+    [Header ("Scale Portals")]
+    [SerializeField]float maxScaleX = 2f;
+    [SerializeField] float minScaleX = 0.5f;
+    [SerializeField] float maxScaleY = 4f;
+    [SerializeField] float minScaleY = 1f;
+
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
             portalToActivate = true;
             previewActive = MovePreview();
+            scalePortal();
+
         }
         else if (Input.GetMouseButton(1))
         {
@@ -35,12 +47,16 @@ public class PortalGunScript : MonoBehaviour
                     bluePortal.SetActive(true);
                     bluePortal.transform.position = previewPortal.transform.position;
                     bluePortal.transform.rotation = previewPortal.transform.rotation;
+                    bluePortal.transform.localScale = previewPortal.transform.localScale;
+
                 }
                 else
                 {
                     orangePortal.SetActive(true);
                     orangePortal.transform.position = previewPortal.transform.position;
                     orangePortal.transform.rotation = previewPortal.transform.rotation;
+                    orangePortal.transform.localScale = previewPortal.transform.localScale;
+
                 }
 
 
@@ -67,5 +83,32 @@ public class PortalGunScript : MonoBehaviour
             return false;
         }
         return false;
+    }
+
+
+    void scalePortal()
+    {
+        mousescroll = Input.mouseScrollDelta;
+        xAxis += mousescroll.y;
+        yAxis += mousescroll.y;
+        previewPortal.transform.localScale = new Vector3(xAxis, yAxis, zAxis);
+
+
+        if (xAxis > maxScaleX)
+        {
+            xAxis = 2;
+        }
+        if (xAxis < minScaleX)
+        {
+            xAxis = 0.5f;
+        }
+        if (yAxis > maxScaleY)
+        {
+            yAxis = 4;
+        }
+        if (yAxis < minScaleY)
+        {
+            yAxis = 1f;
+        }
     }
 }

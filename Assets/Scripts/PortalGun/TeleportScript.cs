@@ -10,7 +10,6 @@ public class TeleportScript : MonoBehaviour
     {
         if (other.TryGetComponent(out PortalScript portal))
         {
-
             Vector3 l_position = portal.virtualPortal.InverseTransformPoint(transform.position);
             l_position.z += offsetAmount;
             transform.position = portal.otherPortal.transform.TransformPoint(l_position);
@@ -28,6 +27,10 @@ public class TeleportScript : MonoBehaviour
                 rb.velocity = portal.otherPortal.transform.TransformDirection(l_velocity); ;
             }
 
-        }
+            if (gameObject.layer.CompareTo("Player") != 0)
+            {
+                transform.localScale = portal.transform.localScale;
+            }
+        }       
     }
 }
