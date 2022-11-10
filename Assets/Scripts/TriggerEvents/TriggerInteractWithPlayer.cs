@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
-public class LavaKillPlayer : MonoBehaviour
+public class TriggerInteractWithPlayer : MonoBehaviour
 {
-
+    [SerializeField] UnityEvent<GameObject> trigger;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-            SceneManager.LoadScene(1);
+            trigger.Invoke(gameObject);
     }
 }

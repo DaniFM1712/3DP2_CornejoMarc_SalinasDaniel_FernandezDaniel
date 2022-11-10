@@ -8,7 +8,9 @@ public class ButtonActived : MonoBehaviour
     [SerializeField] UnityEvent<GameObject>buttonActived;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Cube"))
-        buttonActived.Invoke(gameObject);
+        if (collision.gameObject.CompareTag("Cube"))
+            buttonActived.Invoke(gameObject);
+        else if (collision.gameObject.CompareTag("Laser"))
+            buttonActived.Invoke(gameObject);
     }
 }
