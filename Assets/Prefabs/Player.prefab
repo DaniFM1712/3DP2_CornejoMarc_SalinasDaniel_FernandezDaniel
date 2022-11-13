@@ -131,7 +131,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3104639334850966034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -282,8 +282,8 @@ MonoBehaviour:
   pitchSpeed: 5
   invertPitch: 0
   invertYaw: 0
-  minPitch: -20
-  maxPitch: 20
+  minPitch: -40
+  maxPitch: 50
   pitchController: {fileID: 3104639336279736699}
   characterController: {fileID: 3104639335469988489}
   walkSpeed: 10
@@ -347,6 +347,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  maxScaleX: 2
+  minScaleX: 0.5
+  maxScaleY: 4
+  minScaleY: 1
 --- !u!114 &3104639335469988492
 MonoBehaviour:
   m_ObjectHideFlags: 0

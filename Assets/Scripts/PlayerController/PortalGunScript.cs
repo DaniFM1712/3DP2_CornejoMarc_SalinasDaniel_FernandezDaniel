@@ -19,9 +19,9 @@ public class PortalGunScript : MonoBehaviour
     Vector2 mousescroll;
     float xAxis;
     float yAxis;
-    float zAxis;
+    float zAxis = 0.3f;
     [Header ("Scale Portals")]
-    [SerializeField]float maxScaleX = 2f;
+    [SerializeField]float maxScaleX = 3f;
     [SerializeField] float minScaleX = 0.5f;
     [SerializeField] float maxScaleY = 4f;
     [SerializeField] float minScaleY = 1f;
@@ -32,13 +32,14 @@ public class PortalGunScript : MonoBehaviour
         {
             portalToActivate = true;
             previewActive = MovePreview();
-            //scalePortal();
+            scalePortal();
 
         }
         else if (Input.GetMouseButton(1))
         {
             portalToActivate = false;
             previewActive = MovePreview();
+            scalePortal();
         }
         else
         {
@@ -50,7 +51,7 @@ public class PortalGunScript : MonoBehaviour
                     bluePortal.transform.position = previewPortal.transform.position;
                     bluePortal.transform.rotation = previewPortal.transform.rotation;
 
-                    //bluePortal.transform.localScale = previewPortal.transform.localScale;
+                    bluePortal.transform.localScale = previewPortal.transform.localScale;
 
                     bluePortalShot.Invoke(true);
                 }
@@ -59,7 +60,7 @@ public class PortalGunScript : MonoBehaviour
                     orangePortal.SetActive(true);
                     orangePortal.transform.position = previewPortal.transform.position;
                     orangePortal.transform.rotation = previewPortal.transform.rotation;
-                    //orangePortal.transform.localScale = previewPortal.transform.localScale;
+                    orangePortal.transform.localScale = previewPortal.transform.localScale;
 
                     orangePortalShot.Invoke(true);
                 }
@@ -96,12 +97,12 @@ public class PortalGunScript : MonoBehaviour
         mousescroll = Input.mouseScrollDelta;
         xAxis += mousescroll.y;
         yAxis += mousescroll.y;
-        previewPortal.transform.localScale = new Vector3(xAxis, yAxis, zAxis);
+        previewPortal.transform.localScale = new Vector3(xAxis + 1f , yAxis, zAxis);
 
 
         if (xAxis > maxScaleX)
         {
-            xAxis = 2;
+            xAxis = 3f;
         }
         if (xAxis < minScaleX)
         {
@@ -109,7 +110,7 @@ public class PortalGunScript : MonoBehaviour
         }
         if (yAxis > maxScaleY)
         {
-            yAxis = 4;
+            yAxis = 4f;
         }
         if (yAxis < minScaleY)
         {

@@ -247,6 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdc6a81cc2b68d4dab8d7b858eb562b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
   lineRenderer: {fileID: 4991481962421744288}
   layerMask:
     serializedVersion: 2

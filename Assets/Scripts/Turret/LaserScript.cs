@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 public class LaserScript : MonoBehaviour
 {
+    [SerializeField] UnityEvent buttonEvent;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] LayerMask layerMask;
     [SerializeField] float maxRayDist = float.MaxValue;
@@ -39,6 +41,7 @@ public class LaserScript : MonoBehaviour
             }
             else if(hitInfo.collider.gameObject.CompareTag("Player"))
             {
+                Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(1);
             }
             else if (hitInfo.collider.gameObject.CompareTag("Turret"))
@@ -49,6 +52,11 @@ public class LaserScript : MonoBehaviour
             {
                 reflection.ActivateReflection(true);
             }
+            else if (hitInfo.collider.gameObject.CompareTag("Button"))
+            {
+                buttonEvent.Invoke();
+            }
+
         }
         else
         {

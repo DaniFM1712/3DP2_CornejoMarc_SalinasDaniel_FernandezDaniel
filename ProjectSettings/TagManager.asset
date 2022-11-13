@@ -9,6 +9,9 @@ TagManager:
   - Turret
   - Lava
   - EndZone
+  - Laser
+  - Button
+  - LockedDoor
   layers:
   - Default
   - TransparentFX

@@ -238,6 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdc6a81cc2b68d4dab8d7b858eb562b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonEvent:
+    m_PersistentCalls:
+      m_Calls: []
   lineRenderer: {fileID: 4422609835301906948}
   layerMask:
     serializedVersion: 2
@@ -338,8 +341,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4993998, y: 3.068697, z: 0.3028717}
-  m_Center: {x: 0.018637478, y: 0.04539317, z: 0.2}
+  m_Size: {x: 1.4993998, y: 3.068697, z: 1.2364956}
+  m_Center: {x: 0.018637478, y: 0.04539323, z: 0.6668119}
 --- !u!114 &1853922010893679629
 MonoBehaviour:
   m_ObjectHideFlags: 0
